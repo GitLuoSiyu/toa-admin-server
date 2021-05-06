@@ -343,9 +343,9 @@
 </template>
 
 <script>
-import { listUser, getUser, delUser, addUser, updateUser, exportUser, resetUserPwd, changeUserStatus, importTemplate } from "@/api/system/user";
-import { getToken } from "@/utils/auth";
-import { treeselect } from "@/api/system/dept";
+import { listUser, getUser, delUser, addUser, updateUser, exportUser, resetUserPwd, changeUserStatus, importTemplate } from "../../../api/system/user";
+import { getToken } from "../../../utils/auth";
+import { treeselect } from "../../../api/system/dept";
 import Treeselect from "@riophae/vue-treeselect";
 import "@riophae/vue-treeselect/dist/vue-treeselect.css";
 
@@ -367,23 +367,23 @@ export default {
       // 总条数
       total: 0,
       // 用户表格数据
-      userList: null,
+      userList: [{"searchValue":null,"createBy":"admin","createTime":"2020-11-20 19:29:42","updateBy":null,"updateTime":null,"remark":"管理员","params":{},"userId":1,"deptId":103,"userName":"admin","nickName":"若依","email":"ry@163.com","phonenumber":"15888888888","sex":"1","avatar":"","salt":null,"status":"0","delFlag":"0","loginIp":"127.0.0.1","loginDate":"2020-11-20T19:29:42.000+0800","dept":{"searchValue":null,"createBy":null,"createTime":null,"updateBy":null,"updateTime":null,"remark":null,"params":{},"deptId":103,"parentId":null,"ancestors":null,"deptName":"研发部门","orderNum":null,"leader":"若依","phone":null,"email":null,"status":null,"delFlag":null,"parentName":null,"children":[]},"roles":[],"roleIds":null,"postIds":null,"admin":true},{"searchValue":null,"createBy":"admin","createTime":"2020-11-20 19:29:42","updateBy":null,"updateTime":null,"remark":"测试员","params":{},"userId":2,"deptId":105,"userName":"ry","nickName":"若依","email":"ry@qq.com","phonenumber":"15666666666","sex":"1","avatar":"","salt":null,"status":"0","delFlag":"0","loginIp":"127.0.0.1","loginDate":"2020-11-20T19:29:42.000+0800","dept":{"searchValue":null,"createBy":null,"createTime":null,"updateBy":null,"updateTime":null,"remark":null,"params":{},"deptId":105,"parentId":null,"ancestors":null,"deptName":"测试部门","orderNum":null,"leader":"若依","phone":null,"email":null,"status":null,"delFlag":null,"parentName":null,"children":[]},"roles":[],"roleIds":null,"postIds":null,"admin":false}],
       // 弹出层标题
       title: "",
       // 部门树选项
-      deptOptions: undefined,
+      deptOptions: [],
       // 是否显示弹出层
       open: false,
       // 部门名称
       deptName: undefined,
       // 默认密码
-      initPassword: undefined,
+      initPassword: 123456,
       // 日期范围
       dateRange: [],
       // 状态数据字典
       statusOptions: [],
       // 性别状态字典
-      sexOptions: [],
+      sexOptions: [{"searchValue":null,"createBy":"admin","createTime":"2020-11-20 19:29:49","updateBy":null,"updateTime":null,"remark":"性别男","params":{},"dictCode":1,"dictSort":1,"dictLabel":"男","dictValue":"0","dictType":"sys_user_sex","cssClass":"","listClass":"","isDefault":"Y","status":"0","default":true},{"searchValue":null,"createBy":"admin","createTime":"2020-11-20 19:29:49","updateBy":null,"updateTime":null,"remark":"性别女","params":{},"dictCode":2,"dictSort":2,"dictLabel":"女","dictValue":"1","dictType":"sys_user_sex","cssClass":"","listClass":"","isDefault":"N","status":"0","default":false},{"searchValue":null,"createBy":"admin","createTime":"2020-11-20 19:29:49","updateBy":null,"updateTime":null,"remark":"性别未知","params":{},"dictCode":3,"dictSort":3,"dictLabel":"未知","dictValue":"2","dictType":"sys_user_sex","cssClass":"","listClass":"","isDefault":"N","status":"0","default":false}],
       // 岗位选项
       postOptions: [],
       // 角色选项
@@ -671,5 +671,6 @@ export default {
       this.$refs.upload.submit();
     }
   }
-};
+}
+
 </script>
